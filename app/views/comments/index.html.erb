@@ -1,0 +1,33 @@
+<h1> comcie </h1>
+<% if alert%>
+<p>Uwaga!: <%=alert%></p>
+<% elsif notice %>
+<p>generalnie spoko, ale : <%=notice%></p>
+<% end %>
+<dl>
+<% @comments.each do |comment| %>
+<dt>
+	<%= @posts.find(comment.post_id).title %>
+		<dd>
+			<%= @posts.find(comment.post_id).content %>
+			<%= link_to "Przejdź do", comment_path(comment.id) %>
+			<p>posted by
+			<% if @posts.find(comment.post_id).author_id!=nil %>
+			<%= @authors.find(@posts.find(comment.post_id).author_id).nickname %>
+			<% else %>
+			<%= "Anon" %>
+			<% end %></p>
+		</dd>
+	<dd>
+		<%= comment.content %>
+		<%= link_to "Przejdź do", comment_path(comment.id) %>
+		<p>posted by
+			<% if comment.author_id!=nil %>
+			<%= @authors.find(comment.author_id).nickname %>
+			<% else %>
+			<%= "Anon" %>
+			<% end %></p>
+	</dd>
+</dt>
+<% end %>
+</dl>

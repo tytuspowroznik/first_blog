@@ -1,0 +1,16 @@
+<h1><%= @post.title %> </h1>
+<% if alert%>
+<p>Uwaga!: <%=alert%></p>
+<% elsif notice %>
+<p>generalnie spoko, ale : <%=notice%></p>
+<% end %>
+<%= @post.content %> 
+<p>posted by
+<% if @post.author_id!=nil %>
+<%= @author.find(@post.author_id).nickname %>
+<%= link_to "Przejdź do autora", author_path(@post.author_id) %>
+<% else %>
+<%= "Anon" %>
+<% end %></p>
+<%= link_to "Edytuj", [:edit, @post] %>
+<%= link_to "Usuń", post_path(@post.id), method: :delete %>

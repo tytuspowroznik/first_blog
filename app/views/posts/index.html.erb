@@ -1,0 +1,16 @@
+<h1> posty </h1>
+<% if alert%>
+<p>Uwaga!: <%=alert%></p>
+<% elsif notice %>
+<p>generalnie spoko, ale : <%=notice%></p>
+<% end %>
+<dl>
+<% @posts.each do |post| %>
+<dt>
+	<%= post.title %>
+	<dd>
+		<%= link_to "Przejdź do rozmowy", post_path(post.id) %>
+	</dd>
+</dt>
+<% end %>
+</dl>

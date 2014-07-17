@@ -1,0 +1,11 @@
+<h1> edytuj autora </h1>
+<% if alert%>
+<p>Uwaga!: <%=alert%></p>
+<% elsif notice %>
+<p>generalnie spoko, ale : <%=notice%></p>
+<% end %>
+<%= form_for(@author) do |f| %>
+		<%= f.label :nickname %>
+	<%= f.text_field :nickname %>
+	<%= f.submit "edytuj" %>
+<% end %>

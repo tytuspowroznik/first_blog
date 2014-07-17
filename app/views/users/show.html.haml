@@ -1,0 +1,7 @@
+%h1 panel usera
+%h3=@user.email
+%hr
+%ul
+/-author=Author.where(user_id: current_user.id)
+/=author.nickname
+/=link_to "pokaz", author_path(author.id)

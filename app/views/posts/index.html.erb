@@ -1,9 +1,4 @@
 <h1> posty </h1>
-<% if alert%>
-<p>Uwaga!: <%=alert%></p>
-<% elsif notice %>
-<p>generalnie spoko, ale : <%=notice%></p>
-<% end %>
 <dl>
 <% @posts.each do |post| %>
 <dt>

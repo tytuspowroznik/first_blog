@@ -1,9 +1,4 @@
 <h1><%= @post.title %> </h1>
-<% if alert%>
-<p>Uwaga!: <%=alert%></p>
-<% elsif notice %>
-<p>generalnie spoko, ale : <%=notice%></p>
-<% end %>
 <%= @post.content %> 
 <p>posted by
 <% if @post.author_id!=nil %>

@@ -12,13 +12,13 @@ class ArticlesController < ApplicationController
 		@article=Article.find(params[:id])
 		@post = Post.find(@article.post_id)
 		@auhtor = Author.find(@post.author_id)
-		@comments = @post.comments
+		@comments = Comment.where(post_id: @post.id)
 	end
 
 
 
-	#private 
-	#def comment_params
-	#	params.require(:comment).permit(:content, :author_id, :post_id)
-	#end
+	private 
+	def article_params
+		params.require(:article).permit(:post_id)
+	end
 end

@@ -1,9 +1,4 @@
 <h1> dodaj post </h1>
-<% if alert%>
-<p>Uwaga!: <%=alert%></p>
-<% elsif notice %>
-<p>generalnie spoko, ale : <%=notice%></p>
-<% end %>
 <%= form_for(@post) do |f| %>
 	<%= f.label :title %>
 	<%= f.text_field :title %>

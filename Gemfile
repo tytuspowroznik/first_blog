@@ -30,6 +30,7 @@ gem 'devise'
 
 gem 'simplecov', :require => false
 gem 'simplecov-rcov', :require => false
+gem 'rails_12factor', group: :production
 
 
 group :development, :test do 

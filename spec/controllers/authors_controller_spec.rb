@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe AuthorsController, type: :controller do
 	before(:each) do
 		@user=User.create(email: "test@test.com", password: "qwerty12345")

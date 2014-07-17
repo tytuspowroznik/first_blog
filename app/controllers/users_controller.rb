@@ -2,10 +2,14 @@
 
 class UsersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :make_sure_its_mine
 
+  def index 
+    redirect_to authors_path
+  end
 	def show
-		@user=current_user
+    make_sure_its_mine
+		redirect_to author_path(current_user.author)
+    #@user=current_user
 	end
 
   private

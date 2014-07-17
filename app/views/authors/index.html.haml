@@ -1,10 +1,4 @@
 %h1 Autorzy naszego forum
-- if alert
-  %p
-    Uwaga!: #{alert}
-- elsif notice
-  %p
-    generalnie spoko, ale : #{notice}
 %dl
   - @authors.each do |author|
     %dt

@@ -1,28 +1,28 @@
 %h1 Rozmowa
-- if alert
-  %p
-    Uwaga!: #{alert}
-- elsif notice
-  %p
-    generalnie spoko, ale : #{notice}
 %dl
   %dt
     = @post.title
   %dd
     = @post.content
-    = link_to "Przejdź do", article_path(@articles.where(post_id: @posts.find(comment.post_id).id ))
     %p
       posted by
-      - if @posts.find(comment.post_id).author_id!=nil
-        = @authors.find(@posts.find(comment.post_id).author_id).nickname
+      - if @post.author_id!=nil
+        = link_to @author.nickname, author_path(@author.id)
       - else
         = "Anon"
-  %dd
-    = comment.content
-    = link_to "Przejdź do", comment_path(comment.id)
-    %p
-      posted by
-      - if comment.author_id!=nil
-        = @authors.find(comment.author_id).nickname
-      - else
-        = "Anon "
+
+    = link_to "Przejdź do postu", post_path(@post.id)
+    - @comments.each do |comment|
+      %p
+      - if comment.post_id==@post.id
+        %dd
+        = comment.content
+        = link_to "Przejdź do", comment_path(comment.id)
+        %p
+          posted by
+          - if comment.author_id!=nil
+            = link_to @authors.find(comment.author_id).nickname, author_path(comment.author_id)
+          - else
+            = "Anon "
+        
+%hr

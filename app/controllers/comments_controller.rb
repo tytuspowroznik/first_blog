@@ -22,7 +22,9 @@ class CommentsController < ApplicationController
 		
 	end
 	def create
-		if Comment.create(comment_params)
+		@comment = Comment.new(comment_params)
+		@comment.author_id = current_user.author.id
+		if @comment.save
 			redirect_to comments_path, notice: "utworzono nowy"
 		else
 			render 'new'

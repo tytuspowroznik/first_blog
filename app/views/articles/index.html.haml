@@ -1,30 +1,31 @@
 %h1 Rozmowy
-- if alert
-  %p
-    Uwaga!: #{alert}
-- elsif notice
-  %p
-    generalnie spoko, ale : #{notice}
 %dl
-  - @comments.each do |comment|
+  - @posts.each do |post|
     %dt
-      = @posts.find(comment.post_id).title
+      = post.title
     %dd
-      = @posts.find(comment.post_id).content
-
-      = link_to "Przejdź tutaj", article_path(@articles.where(post_id: comment.post_id).first.id)
+      = post.content
       %p
         posted by
-        - if @posts.find(comment.post_id).author_id!=nil
-          = @authors.find(@posts.find(comment.post_id).author_id).nickname
+        - if post.author_id!=nil
+          = link_to @authors.find(post.author_id).nickname, author_path(post.author_id)
         - else
           = "Anon"
-    %dd
-      = comment.content
-      = link_to "Przejdź do", comment_path(comment.id)
-      %p
-        posted by
-        - if comment.author_id!=nil
-          = @authors.find(comment.author_id).nickname
-        - else
-          = "Anon "
+
+      = link_to "Przejdź tutaj", article_path(@articles.where(post_id: post.id).first.id)
+      - @comments.each do |comment|
+        %p
+        - if comment.post_id==post.id
+          %dd
+          = comment.content
+          = link_to "Przejdź do", comment_path(comment.id)
+          %p
+            posted by
+            - if comment.author_id!=nil
+              = link_to @authors.find(comment.author_id).nickname, author_path(comment.author_id)
+            - else
+              = "Anon "
+        
+%hr
+%p 
+  = link_to "Utwórz rozmowę", new_post_path

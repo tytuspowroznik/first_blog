@@ -9,11 +9,11 @@ class AuthorsController < ApplicationController
 	def show
 		@author=Author.find(params[:id])
 	end
-	def destroy
-		@author=Author.find(params[:id])
-		@author.destroy
-		redirect_to authors_path, alert: "usunieto"
-	end
+	# def destroy
+	# 	@author=Author.find(params[:id])
+	# 	@author.destroy
+	# 	redirect_to authors_path, alert: "usunieto"
+	# end
 	def new
 		@author=Author.new
 
@@ -28,6 +28,7 @@ class AuthorsController < ApplicationController
 	end
 	def edit
 		@author=Author.find(params[:id])
+		make_sure_its_mine
 
 	end
 	def update
@@ -46,4 +47,11 @@ class AuthorsController < ApplicationController
 	def author_params
 		params.require(:author).permit(:nickname)
 	end
+
+    def make_sure_its_mine
+      unless current_user.author.id==params[:id].to_i
+        redirect_to root_url, alert: "Brak uprawnień"
+      end
+      true
+    end
 end

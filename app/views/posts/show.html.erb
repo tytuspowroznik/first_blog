@@ -9,3 +9,4 @@
 <% end %></p>
 <%= link_to "Edytuj", [:edit, @post] %>
 <%= link_to "Usuń", post_path(@post.id), method: :delete %>
+<%= link_to "Skomentuj", new_comment_path(@post.id) %>

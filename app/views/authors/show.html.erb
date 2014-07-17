@@ -1,8 +1,2 @@
 <h1><%= @author.nickname %> </h1>
-<% if alert%>
-<p>Uwaga!: <%=alert%></p>
-<% elsif notice %>
-<p>generalnie spoko, ale : <%=notice%></p>
-<% end %>
 <%= link_to "Edytuj", [:edit, @author] %>
-<%= link_to "Usuń", author_path(@author.id), method: :delete %>

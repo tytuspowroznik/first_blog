@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 	def show
 		@article=Article.find(params[:id])
 		@post = Post.find(@article.post_id)
-		@auhtor = Author.find(@post.author_id)
+		@author = Author.find(@post.author_id)
 		@comments = Comment.where(post_id: @post.id)
 	end
 

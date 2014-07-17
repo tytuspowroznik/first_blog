@@ -1,9 +1,4 @@
 <h1> dodaj komentarz </h1>
-<% if alert%>
-<p>Uwaga!: <%=alert%></p>
-<% elsif notice %>
-<p>generalnie spoko, ale : <%=notice%></p>
-<% end %>
 <%= form_for(@comment) do |f| %>
 	<%= f.label :content %>
 	<%= f.text_field :content %>

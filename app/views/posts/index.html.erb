@@ -4,6 +4,7 @@
 <dt>
 	<%= post.title %>
 	<dd>
+		<%= link_to "Autor " + post.author.nickname, author_path(post.author_id) %>
 		<%= link_to "Przejdź do rozmowy", post_path(post.id) %>
 	</dd>
 </dt>

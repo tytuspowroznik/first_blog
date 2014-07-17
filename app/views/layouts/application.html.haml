@@ -19,9 +19,4 @@
         \#{link_to current_user.author.nickname , current_user.author}
       = link_to "wyloguj", destroy_user_session_path, method: :delete
       %hr
-    - else
-      %div Anon
-      = link_to "zarejestruj się", new_user_registration_path
-      = link_to "zaloguj się", new_user_session_path
-      %hr
     = yield

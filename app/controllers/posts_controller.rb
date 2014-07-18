@@ -17,6 +17,7 @@ class PostsController < ApplicationController
          	redirect_to root_url, alert: "Brak uprawnień"
          else 
          	@post.destroy
+         	redirect_to root_url, alert: "usunięto"
        	end
 	end
 	def new
@@ -61,8 +62,5 @@ class PostsController < ApplicationController
  #        else 
  #        	true
  #      	end
-	# end
-	# def get_out_of_here
-	# 	redirect_to posts_path, alert: "usunieto"
 	# end
 end

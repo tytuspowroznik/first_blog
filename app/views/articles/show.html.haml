@@ -7,7 +7,7 @@
     %p
       posted by
       - if @post.author_id!=nil
-        = link_to @author.nickname, author_path(@author.id)
+        = link_to @post.author.nickname, author_path(@post.author.id)
       - else
         = "Anon"
 

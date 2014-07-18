@@ -2,6 +2,5 @@
 
 class HomeController < ApplicationController
 	def index
-		@zmienna="Witam, glowna strona"
 	end
 end

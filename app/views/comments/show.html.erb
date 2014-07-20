@@ -1,14 +1,10 @@
-<%= @comment.content %> 
+<h1 class="center"><%= @comment.content %></h1>
+<p class="allign-right">
 <%= link_to "Edytuj", [:edit, @comment] %>
-<%= link_to "Usuń", comment_path(@comment.id), method: :delete %>
-<% if alert%>
-<p>Uwaga!: <%=alert%></p>
-<% elsif notice %>
-<p>generalnie spoko, ale : <%=notice%></p>
-<% end %>
-<p>posted by
+<%= link_to "Usuń", comment_path(@comment.id), method: :delete %></p>
+<p>Autor: 
 <% if @comment.author_id!=nil %>
-<%= @author.find(@comment.author_id).nickname %>
+<%= link_to @comment.author.nickname, author_path(@comment.author.id) %>
 <% else %>
 <%= "Anon" %>
 <% end %></p>

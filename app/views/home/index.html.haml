@@ -1,0 +1,16 @@
+.container
+	.row
+		.col-sm-3
+		.col-sm-6
+			%h1.text-center
+			- if current_user
+				%h1
+					Witaj,
+					\#{link_to current_user.author.nickname , current_user.author}
+				%p.allign-right= link_to "przejdz do forum", articles_path
+			- else
+				%h1 
+					Witaj, Anon
+				%p.allign-right= link_to "zarejestruj się", new_user_registration_path
+				%p.allign-right= link_to "zaloguj się", new_user_session_path
+			

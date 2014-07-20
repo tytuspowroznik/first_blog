@@ -1,28 +1,30 @@
 %h1 Rozmowa
-%dl
+.container.col-sm-1
+%dl.col-sm-10
   %dt
-    = @post.title
-  %dd
-    = @post.content
-    %p
-      posted by
-      - if @post.author_id!=nil
-        = link_to @post.author.nickname, author_path(@post.author.id)
-      - else
-        = "Anon"
-
-    = link_to "Przejdź do postu", post_path(@post.id)
-    - @comments.each do |comment|
-      %p
-      - if comment.post_id==@post.id
-        %dd
-        = comment.content
-        = link_to "Przejdź do", comment_path(comment.id)
-        %p
-          posted by
-          - if comment.author_id!=nil
-            = link_to @authors.find(comment.author_id).nickname, author_path(comment.author_id)
-          - else
-            = "Anon "
-        
+    = link_to @post.title , post_path(@post.id)
+  %br
+    %dd
+      = @post.content
+      .col-sm-1
+      %p.allign-right
+        Autor: 
+        - if @post.author_id!=nil
+          = link_to @post.author.nickname, author_path(@post.author.id)
+        - else
+          = "Anon"
+      %br
+      - @comments.each do |comment|
+        %br
+        %p.col-sm-1
+        - if comment.post_id==@post.id
+          %dd
+          = link_to comment.content, comment_path(comment.id)
+          %br
+            %p.allign-right
+              Autor: 
+              - if comment.author_id!=nil
+                = link_to @authors.find(comment.author_id).nickname, author_path(comment.author_id)
+              - else
+                = "Anon "
 %hr

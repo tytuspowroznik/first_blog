@@ -1,6 +1,6 @@
 %h1 Autorzy naszego forum
 %dl
   - @authors.each do |author|
-    %dt
-      = author.nickname
-      = link_to "Przejdź do", author_path(author.id)
+    %br
+    %dt.center
+      = link_to author.nickname, author_path(author.id)

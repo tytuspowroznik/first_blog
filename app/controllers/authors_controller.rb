@@ -14,18 +14,18 @@ class AuthorsController < ApplicationController
 	# 	@author.destroy
 	# 	redirect_to authors_path, alert: "usunieto"
 	# end
-	def new
-		@author=Author.new
+	# def new
+	# 	@author=Author.new
 
 		
-	end
-	def create
-		if Author.create(author_params)
-			redirect_to authors_path, notice: "utowrzono nowy"
-		else
-			render 'new'
-		end
-	end
+	# end
+	# def create
+	# 	if Author.create(author_params)
+	# 		redirect_to authors_path, notice: "utowrzono nowy"
+	# 	else
+	# 		render 'new'
+	# 	end
+	# end
 	def edit
 		@author=Author.find(params[:id])
 		make_sure_its_mine

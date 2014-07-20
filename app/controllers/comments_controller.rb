@@ -1,12 +1,12 @@
 #coding UTF-8
 
 class CommentsController < ApplicationController
-	# def index
-	# 	@authors = Author.all
-	# 	@posts = Post.all 
-	# 	@comments = Comment.all
+	def index
+		@authors = Author.all
+		@posts = Post.all 
+		@comments = Comment.all
 
-	# end
+	end
 	def show
 		@author=Author.all
 		@comment=Comment.find(params[:id])

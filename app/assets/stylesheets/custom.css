@@ -1,0 +1,21 @@
+h1 {
+    color: orange;
+    text-align: center;
+}
+.center {
+    text-align: center;
+} 
+.allign-right{
+	text-align: right
+}
+.change-color-to-red{
+	color: red;
+}
+
+.change-color-to-green{
+	color: green;
+}
+
+.change-color-to-orange{
+	color: orange;
+}
